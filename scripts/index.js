@@ -23,17 +23,12 @@ function Adapter(){
         this.pList.css("line-height",this.pList.parent().height() / (this.pList.length + 2) + "px");
         this.pList.css("font-size",33 / 750 * $(window).width() + "px");
 
-        //width 0.757333
-        //height 0.611862
-        //.css("height",$(window).height() * 0.55 + "px")
-
-
         if($(window).width() < 500 && $(window).height() / $(window).width() <= 1.5) {
             this.page3ul.css("width", $(window).width() * 0.65 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
         }else if($(window).width() < 500 && $(window).height() / $(window).width() > 1.5) {
-            this.page3ul.css("width", $(window).width() * 0.5 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
-            //this.tags.css("bottom","13.5%");
-            this.tags.css("bottom","10%");
+            this.page3ul.css("width", $(window).width() * 0.65 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
+            this.tags.css("bottom","13.5%");
+            //this.tags.css("bottom","10%");
         }else if($(window).width() > 500 && $(window).height() / $(window).width() <= 1.5){
             this.page3ul.css("width", $(window).width() * 0.55 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
             this.tags.css("bottom","10%");
@@ -72,7 +67,6 @@ function Loading(){
         "images/3/game.png",
         "images/3/web.png",
         "images/3/run.png",
-        "images/3/tip.png",
         //第四页
         "images/4/bg4.png",
         "images/4/joinus.png"
@@ -96,44 +90,137 @@ function Loading(){
 
             console.log("total" + self.total);
 
-            //if (self.total >= 0 && self.total <= 0.3 && self.drawText != "冰") {
-            //    S.draw("冰");
-            //    self.drawText = "冰";
-            //} else if (self.total > 0.3 && self.total <= 0.55 && self.drawText != "岩") {
-            //    S.draw("岩");
-            //    self.drawText = "岩";
-            //} else if (self.total > 0.55 && self.total <= 0.8 && self.drawText != "作") {
-            //    S.draw("作");
-            //    self.drawText = "作";
-            //} else if (self.total > 0.8 && self.total <= 1.1 && self.drawText != "坊") {
-            //    S.draw("坊");
-            //    self.drawText = "坊";
-            //}
+            if (self.total >= 0 && self.total <= 0.3 && self.drawText != "冰") {
+                S.draw("冰");
+                self.drawText = "冰";
+            } else if (self.total > 0.3 && self.total <= 0.55 && self.drawText != "岩") {
+                S.draw("岩");
+                self.drawText = "岩";
+            } else if (self.total > 0.55 && self.total <= 0.8 && self.drawText != "作") {
+                S.draw("作");
+                self.drawText = "作";
+            } else if (self.total > 0.8 && self.total <= 1.1 && self.drawText != "坊") {
+                S.draw("坊");
+                self.drawText = "坊";
+            }
 
             var timer = setTimeout(function(){
                 if(self.source.length != 0){
                     self.loadIn();
                 }else{
-                    //$("#mask canvas").hide();
+                    $("#mask canvas").hide();
 
                     $("#mask").css("opacity",0);
                     var timer1 = setTimeout(function(){
                         $("#mask").hide();
 
-                        setCurrentTag(null,0);
+                        //touch.init();
+                        //carousel.init();
+                        setCurrentTag(30,null,0);
                         var adapter = new Adapter();
                         adapter.init();
 
                         clearTimeout(timer1);
                     },1000);
 
-                    //clearTimeout(timer);
+                    clearTimeout(timer);
                 }
             },6000 / self.source.length);
         };
         img.src = this.source[this.source.length - 1];
     };
 }
+
+//function Loading(){
+//    this.source = [
+//        //第一页
+//        "images/1/bg1.png",
+//        "images/1/mask.png",
+//        "images/1/byzf.png",
+//        "images/1/continue.png",
+//        "images/1/arrow.png",
+//        //第二页
+//        "images/2/bg2.png",
+//        "images/2/dialog.png",
+//        //第三页
+//        "images/3/bg3.png",
+//        "images/3/by-hotel.png",
+//        "images/3/product-tag.png",
+//        "images/3/program-tag.png",
+//        "images/3/mobile-tag.png",
+//        "images/3/design-tag.png",
+//        "images/3/game-tag.png",
+//        "images/3/web-tag.png",
+//        "images/3/run-tag.png",
+//        "images/3/product.png",
+//        "images/3/program.png",
+//        "images/3/mobile.png",
+//        "images/3/design.png",
+//        "images/3/game.png",
+//        "images/3/web.png",
+//        "images/3/run.png",
+//        "images/3/tip.png",
+//        //第四页
+//        "images/4/bg4.png",
+//        "images/4/joinus.png"
+//
+//    ];
+//
+//    this.total = 0;
+//    this.per = 1 / this.source.length;
+//
+//    //this.drawText;
+//
+//    Loading.prototype.loadIn = function(){
+//        var img = new Image();
+//
+//        var self = this;
+//
+//        img.onload = function(){
+//            self.total += self.per;
+//
+//            self.source.pop();
+//
+//            console.log("total" + self.total);
+//
+//            //if (self.total >= 0 && self.total <= 0.3 && self.drawText != "冰") {
+//            //    S.draw("冰");
+//            //    self.drawText = "冰";
+//            //} else if (self.total > 0.3 && self.total <= 0.55 && self.drawText != "岩") {
+//            //    S.draw("岩");
+//            //    self.drawText = "岩";
+//            //} else if (self.total > 0.55 && self.total <= 0.8 && self.drawText != "作") {
+//            //    S.draw("作");
+//            //    self.drawText = "作";
+//            //} else if (self.total > 0.8 && self.total <= 1.1 && self.drawText != "坊") {
+//            //    S.draw("坊");
+//            //    self.drawText = "坊";
+//            //}
+//
+//            var timer = setTimeout(function(){
+//                if(self.source.length != 0){
+//                    self.loadIn();
+//                }else{
+//                    //$("#mask canvas").hide();
+//
+//                    $("#mask").css("opacity",0);
+//                    var timer1 = setTimeout(function(){
+//                        $("#mask").hide();
+//
+//                        setCurrentTag(null,0);
+//                        var adapter = new Adapter();
+//                        adapter.init();
+//
+//                        clearTimeout(timer1);
+//                    },1000);
+//
+//                    //clearTimeout(timer);
+//                }
+//            },6000 / self.source.length);
+//        };
+//        img.src = this.source[this.source.length - 1];
+//    };
+//}
 
 function Touch(){
     var self = this;
@@ -184,7 +271,7 @@ function Touch(){
                 var timer = setTimeout(function(){
                     $("#content").animate({
                         marginTop:"-" + (self.clientHeight * self.nowPageId) + "px"
-                    },function(){
+                    },400,function(){
                         $(".disappear").css("opacity",1);
 
                         //第二页的dialog显示
@@ -521,15 +608,15 @@ function Carousel(touch){
 distance 传入 rem值
  */
 
-var distances = [
-    0.6,
-    0.44,
-    0.4,
-    0.36,
-    0.4,
-    0.44,
-    0.6
-];
+//var distances = [
+//    0.6,
+//    0.44,
+//    0.4,
+//    0.36,
+//    0.4,
+//    0.44,
+//    0.6
+//];
 
 function setCurrentTag(currentId,nextId){
     var fontSize = parseFloat(document.documentElement.style.fontSize);
@@ -582,30 +669,22 @@ function typeit(num){
     }
 }
 
-/*
-一个一个显示文字
- */
-
 var touch = new Touch();
 var carousel = new Carousel(touch);
 var loading = new Loading();
 var pList = document.querySelectorAll("#page2 p");
+var distances = [
+    0.6,
+    0.44,
+    0.4,
+    0.36,
+    0.4,
+    0.44,
+    0.6
+];
 
-$(document).ready(function(){
-    //var loading = new Loading();
-    //loading.loadIn();
-
-    //图片的懒加载
-    //$("#mask").on("touchstart",function(e){
-    //    e.preventDefault();
-    //}).on("touchend",function(e){
-    //    e.preventDefault();
-    //});
-
-    //先禁止掉
-
-    //这个之间
-    //S.init();
+$("document").ready(function(){
+    S.init();
 
     $("#mask").on("touchstart",function(e){
         e.preventDefault();
@@ -613,78 +692,11 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-//    var canvas = document.getElementById("myCanvas");
-//
-//    canvas.width = $(window).width();
-//    canvas.height = $(window).height();
-//
-//    var ctx = canvas.getContext("2d");
-//
-//    //context.fill = "rgba(0,0,0,0.7)";
-//    //context.fillRect(0,0,canvas.width,canvas.height);
-//
-//    window.requestAnimFrame = (function(){
-//        return  window.requestAnimationFrame       ||
-//            window.webkitRequestAnimationFrame ||
-//            window.mozRequestAnimationFrame    ||
-//            function( callback ){
-//                window.setTimeout(callback, 1000 / 60);
-//            };
-//    })();
-//
-//    //var lines = ["rgba(0,222,255, 0.2)",
-//    //    "rgba(157,192,249, 0.2)",
-//    //    "rgba(0,168,255, 0.2)"];
-//
-//    var lines = ["rgba(0,0,0,1)"]
-//
-//    var step = 0;
-//    function loop() {
-//        ctx.clearRect(0, 0, canvas.width, canvas.height);
-////            ctx.fillStyle = "rgba(0,222,255, 0.2)";
-//        //角度增加一度
-//        step++;
-//        //角度转换成弧度
-//        for(var j = lines.length - 1; j >= 0; j--) {
-//            ctx.fillStyle = lines[j];
-//            //每个矩形的角度都不同，每个之间相差45度
-//            var angle = (step+j*45)*Math.PI/180;
-//            var deltaHeight   = Math.sin(angle) * 50;
-//            var deltaHeightRight   = Math.cos(angle) * 50;
-//            ctx.beginPath();
-//            ctx.moveTo(0, canvas.height/2+deltaHeight);
-//            ctx.bezierCurveTo(canvas.width /2, canvas.height/2+deltaHeight-50, canvas.width / 2, canvas.height/2+deltaHeightRight-50, canvas.width, canvas.height/2+deltaHeightRight);
-//            ctx.lineTo(canvas.width, canvas.height);
-//            ctx.lineTo(0, canvas.height);
-//            ctx.lineTo(0, canvas.height/2+deltaHeight);
-//            ctx.closePath();
-//            ctx.fill();
-//        }
-//        requestAnimFrame(loop);
-//    }
-//    loop();
-
-
     loading.loadIn();
 
     touch.init();
     carousel.init();
-    //这个之间
-
-    //setCurrentTag(null,0);
-
-    //setCurrentTag(30,null,0);
-
-
-    //var init = new Init();
-    //init.init();
-
-
-    //var timer = setTimeout(function(){
-    //    var init = new Init();
-    //    init.init();
-    //},500);
-});
+})
 
 var S = {
     init: function () {
