@@ -88,7 +88,7 @@ function Loading(){
 
             self.source.pop();
 
-            console.log("total" + self.total);
+            $("#persent").text(parseInt(self.total * 100) + "%");
 
             if (self.total >= 0 && self.total <= 0.3 && self.drawText != "冰") {
                 S.draw("冰");
@@ -114,8 +114,6 @@ function Loading(){
                     var timer1 = setTimeout(function(){
                         $("#mask").hide();
 
-                        //touch.init();
-                        //carousel.init();
                         setCurrentTag(30,null,0);
                         var adapter = new Adapter();
                         adapter.init();
@@ -130,97 +128,6 @@ function Loading(){
         img.src = this.source[this.source.length - 1];
     };
 }
-
-//function Loading(){
-//    this.source = [
-//        //第一页
-//        "images/1/bg1.png",
-//        "images/1/mask.png",
-//        "images/1/byzf.png",
-//        "images/1/continue.png",
-//        "images/1/arrow.png",
-//        //第二页
-//        "images/2/bg2.png",
-//        "images/2/dialog.png",
-//        //第三页
-//        "images/3/bg3.png",
-//        "images/3/by-hotel.png",
-//        "images/3/product-tag.png",
-//        "images/3/program-tag.png",
-//        "images/3/mobile-tag.png",
-//        "images/3/design-tag.png",
-//        "images/3/game-tag.png",
-//        "images/3/web-tag.png",
-//        "images/3/run-tag.png",
-//        "images/3/product.png",
-//        "images/3/program.png",
-//        "images/3/mobile.png",
-//        "images/3/design.png",
-//        "images/3/game.png",
-//        "images/3/web.png",
-//        "images/3/run.png",
-//        "images/3/tip.png",
-//        //第四页
-//        "images/4/bg4.png",
-//        "images/4/joinus.png"
-//
-//    ];
-//
-//    this.total = 0;
-//    this.per = 1 / this.source.length;
-//
-//    //this.drawText;
-//
-//    Loading.prototype.loadIn = function(){
-//        var img = new Image();
-//
-//        var self = this;
-//
-//        img.onload = function(){
-//            self.total += self.per;
-//
-//            self.source.pop();
-//
-//            console.log("total" + self.total);
-//
-//            //if (self.total >= 0 && self.total <= 0.3 && self.drawText != "冰") {
-//            //    S.draw("冰");
-//            //    self.drawText = "冰";
-//            //} else if (self.total > 0.3 && self.total <= 0.55 && self.drawText != "岩") {
-//            //    S.draw("岩");
-//            //    self.drawText = "岩";
-//            //} else if (self.total > 0.55 && self.total <= 0.8 && self.drawText != "作") {
-//            //    S.draw("作");
-//            //    self.drawText = "作";
-//            //} else if (self.total > 0.8 && self.total <= 1.1 && self.drawText != "坊") {
-//            //    S.draw("坊");
-//            //    self.drawText = "坊";
-//            //}
-//
-//            var timer = setTimeout(function(){
-//                if(self.source.length != 0){
-//                    self.loadIn();
-//                }else{
-//                    //$("#mask canvas").hide();
-//
-//                    $("#mask").css("opacity",0);
-//                    var timer1 = setTimeout(function(){
-//                        $("#mask").hide();
-//
-//                        setCurrentTag(null,0);
-//                        var adapter = new Adapter();
-//                        adapter.init();
-//
-//                        clearTimeout(timer1);
-//                    },1000);
-//
-//                    //clearTimeout(timer);
-//                }
-//            },6000 / self.source.length);
-//        };
-//        img.src = this.source[this.source.length - 1];
-//    };
-//}
 
 function Touch(){
     var self = this;
@@ -1065,7 +972,7 @@ S.ShapeBuilder = (function () {
         shapeCanvas = document.createElement('canvas'),
         shapeContext = shapeCanvas.getContext('2d'),
         fontSize = 500,
-        fontFamily = 'Avenir, Helvetica Neue, Helvetica, Arial, sans-serif';
+        fontFamily = 'STKaiti, STXingkai, 华文行楷, Avenir, Helvetica Neue, Helvetica, Arial, sans-serif';
 
     function fit() {
         shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
