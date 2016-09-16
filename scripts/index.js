@@ -21,7 +21,7 @@ function Adapter(){
         console.log("parent",this.pList.length);
 
         this.pList.css("line-height",this.pList.parent().height() / (this.pList.length + 2) + "px");
-        this.pList.css("font-size",32 / 750 * $(window).width() + "px");
+        this.pList.css("font-size",33 / 750 * $(window).width() + "px");
 
         //width 0.757333
         //height 0.611862
