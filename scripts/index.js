@@ -31,8 +31,9 @@ function Adapter(){
         if($(window).width() < 500 && $(window).height() / $(window).width() <= 1.5) {
             this.page3ul.css("width", $(window).width() * 0.65 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
         }else if($(window).width() < 500 && $(window).height() / $(window).width() > 1.5) {
-            this.page3ul.css("width", $(window).width() * 0.7 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.078 + "px auto 0");
-            this.tags.css("bottom","13.5%");
+            this.page3ul.css("width", $(window).width() * 0.5 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
+            //this.tags.css("bottom","13.5%");
+            this.tags.css("bottom","10%");
         }else if($(window).width() > 500 && $(window).height() / $(window).width() <= 1.5){
             this.page3ul.css("width", $(window).width() * 0.55 + "px").css("height", $(".current").height() + "px").css("margin", $(window).height() * 0.076577 + "px auto 0");
             this.tags.css("bottom","10%");
@@ -113,7 +114,7 @@ function Loading(){
                 if(self.source.length != 0){
                     self.loadIn();
                 }else{
-                    $("#mask canvas").hide();
+                    //$("#mask canvas").hide();
 
                     $("#mask").css("opacity",0);
                     var timer1 = setTimeout(function(){
@@ -126,7 +127,7 @@ function Loading(){
                         clearTimeout(timer1);
                     },1000);
 
-                    clearTimeout(timer);
+                    //clearTimeout(timer);
                 }
             },6000 / self.source.length);
         };
@@ -612,56 +613,56 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-    var canvas = document.getElementById("myCanvas");
-
-    canvas.width = $(window).width();
-    canvas.height = $(window).height();
-
-    var ctx = canvas.getContext("2d");
-
-    //context.fill = "rgba(0,0,0,0.7)";
-    //context.fillRect(0,0,canvas.width,canvas.height);
-
-    window.requestAnimFrame = (function(){
-        return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-                window.setTimeout(callback, 1000 / 60);
-            };
-    })();
-
-    //var lines = ["rgba(0,222,255, 0.2)",
-    //    "rgba(157,192,249, 0.2)",
-    //    "rgba(0,168,255, 0.2)"];
-
-    var lines = ["rgba(0,0,0,1)"]
-
-    var step = 0;
-    function loop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-//            ctx.fillStyle = "rgba(0,222,255, 0.2)";
-        //角度增加一度
-        step++;
-        //角度转换成弧度
-        for(var j = lines.length - 1; j >= 0; j--) {
-            ctx.fillStyle = lines[j];
-            //每个矩形的角度都不同，每个之间相差45度
-            var angle = (step+j*45)*Math.PI/180;
-            var deltaHeight   = Math.sin(angle) * 50;
-            var deltaHeightRight   = Math.cos(angle) * 50;
-            ctx.beginPath();
-            ctx.moveTo(0, canvas.height/2+deltaHeight);
-            ctx.bezierCurveTo(canvas.width /2, canvas.height/2+deltaHeight-50, canvas.width / 2, canvas.height/2+deltaHeightRight-50, canvas.width, canvas.height/2+deltaHeightRight);
-            ctx.lineTo(canvas.width, canvas.height);
-            ctx.lineTo(0, canvas.height);
-            ctx.lineTo(0, canvas.height/2+deltaHeight);
-            ctx.closePath();
-            ctx.fill();
-        }
-        requestAnimFrame(loop);
-    }
-    loop();
+//    var canvas = document.getElementById("myCanvas");
+//
+//    canvas.width = $(window).width();
+//    canvas.height = $(window).height();
+//
+//    var ctx = canvas.getContext("2d");
+//
+//    //context.fill = "rgba(0,0,0,0.7)";
+//    //context.fillRect(0,0,canvas.width,canvas.height);
+//
+//    window.requestAnimFrame = (function(){
+//        return  window.requestAnimationFrame       ||
+//            window.webkitRequestAnimationFrame ||
+//            window.mozRequestAnimationFrame    ||
+//            function( callback ){
+//                window.setTimeout(callback, 1000 / 60);
+//            };
+//    })();
+//
+//    //var lines = ["rgba(0,222,255, 0.2)",
+//    //    "rgba(157,192,249, 0.2)",
+//    //    "rgba(0,168,255, 0.2)"];
+//
+//    var lines = ["rgba(0,0,0,1)"]
+//
+//    var step = 0;
+//    function loop() {
+//        ctx.clearRect(0, 0, canvas.width, canvas.height);
+////            ctx.fillStyle = "rgba(0,222,255, 0.2)";
+//        //角度增加一度
+//        step++;
+//        //角度转换成弧度
+//        for(var j = lines.length - 1; j >= 0; j--) {
+//            ctx.fillStyle = lines[j];
+//            //每个矩形的角度都不同，每个之间相差45度
+//            var angle = (step+j*45)*Math.PI/180;
+//            var deltaHeight   = Math.sin(angle) * 50;
+//            var deltaHeightRight   = Math.cos(angle) * 50;
+//            ctx.beginPath();
+//            ctx.moveTo(0, canvas.height/2+deltaHeight);
+//            ctx.bezierCurveTo(canvas.width /2, canvas.height/2+deltaHeight-50, canvas.width / 2, canvas.height/2+deltaHeightRight-50, canvas.width, canvas.height/2+deltaHeightRight);
+//            ctx.lineTo(canvas.width, canvas.height);
+//            ctx.lineTo(0, canvas.height);
+//            ctx.lineTo(0, canvas.height/2+deltaHeight);
+//            ctx.closePath();
+//            ctx.fill();
+//        }
+//        requestAnimFrame(loop);
+//    }
+//    loop();
 
 
     loading.loadIn();

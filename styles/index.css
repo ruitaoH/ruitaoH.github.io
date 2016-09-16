@@ -120,7 +120,9 @@ ul{
     height:0.44rem;
 
     bottom:0.24rem;
-    left:calc(50% - 0.23rem);
+    /*left:calc(50% - 0.23rem);*/
+    left:50%;
+    margin-left:-0.23rem;
 
     animation:blink 1s infinite;
 }
@@ -132,7 +134,9 @@ ul{
     height:0.20rem;
 
     bottom:0.85rem;
-    left:calc(50% - 0.845rem);
+    /*left:calc(50% - 0.845rem);*/
+    left:50%;
+    margin-left:-0.845rem;
 }
 
 /*.tremble:hover{*/
@@ -149,8 +153,10 @@ ul{
     background:url("../images/2/dialog.png") no-repeat 0 0 / 100% 100%;
 
     position: absolute;
-    left:calc(50% - 2.83rem);
+    /*left:calc(50% - 2.83rem);*/
     top:0.75rem;
+    left:50%;
+    margin-left:-2.83rem;
 
     box-sizing: border-box;
     padding: 1.11rem 0 2rem;
@@ -287,7 +293,9 @@ ul{
     height:8.558559%;
 
     bottom:8%;
-    left:calc(50% - 2.52rem);
+    /*left:calc(50% - 2.52rem);*/
+    left:50%;
+    margin-left:-2.52rem;
     /*background:url("../images/3/冰岩客栈.png") no-repeat 0 0 / 100% 100%;*/
 }
 
@@ -338,8 +346,10 @@ ul{
     width:2.44rem;
     height:0.6966rem;
 
-    left:calc(50% - 1.22rem);
+    /*left:calc(50% - 1.22rem);*/
     bottom:36.9369%;
+    left:50%;
+    margin-left:-1.22rem;
 
     animation:shake 1.5s infinite;
 }
