@@ -252,7 +252,7 @@ function Carousel(touch){
         this.carouselArea.on('touchstart',function(e){
             e.preventDefault();
 
-            self.fingerStart = e.touches[0].screenY;
+            self.fingerStart = e.touches[0].screenX;
 
             if(self.tip == 0){
                 $(".tip").hide();
@@ -264,7 +264,7 @@ function Carousel(touch){
         }).on('touchend',function(e){
             e.preventDefault();
 
-            self.fingerEnd = e.changedTouches[0].screenY;
+            self.fingerEnd = e.changedTouches[0].screenX;
 
             self.currentItem = $(".current");
             self.nextItem = $(".next");
@@ -375,10 +375,10 @@ function Carousel(touch){
 
     Carousel.prototype.horizontalScroll = function(){
         if(!this.targetIsPlaying && !this.targetIsClick) {
-            if (this.fingerStart - this.fingerEnd >= 50) {
+            if (self.fingerStart - self.fingerEnd >= 45) {
                 self.targetIsPlaying = true;
                 self.carouselNextPage();
-            } else if (this.fingerEnd - this.fingerStart >= 50) {
+            } else if (this.fingerEnd - this.fingerStart >= 45) {
                 self.targetIsPlaying = true;
                 self.carouselPrePage();
             } else {
