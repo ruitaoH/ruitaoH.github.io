@@ -147,12 +147,13 @@ function Touch(){
     };
 
     Touch.prototype.verticalScroll = function(){
+
+    	alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY)
+
         if(this.fingerStart.screenY - this.fingerEnd.screenY >= 30 && this.nowPageId != 4){
             //向下滑动
             if(this.nowPageId == 1){
                 //this.target = false;
-
-                alert("nowPageId" + this.nowPageId);
 
                 $(".disappear").css("opacity",0);
                 var timer = setTimeout(function(){
