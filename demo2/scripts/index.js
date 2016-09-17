@@ -128,6 +128,16 @@ function Touch(){
             e.preventDefault();
 
             self.fingerStart = e.touches[0];
+            self.fingerEnd = e.changedTouches[0];
+
+            self.nowPageId = parseInt($(this).attr("pageId")) + 1;
+
+            self.$prePage = self.nowPageId == 1 ? null : $(".page")[self.nowPageId - 2];
+            self.$nextPage = self.nowPageId == 4 ? null : $(".page")[self.nowPageId];
+
+            if (self.target == true) {
+                self.verticalScroll();
+            }
         }).on("touchmove",function(e) {
             e.preventDefault();
 
@@ -146,7 +156,7 @@ function Touch(){
 
     Touch.prototype.verticalScroll = function(){
 
-    	alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY)
+    	// alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY)
 
         if(this.fingerStart.screenY - this.fingerEnd.screenY >= 30 && this.nowPageId != 4){
             //向下滑动
