@@ -134,13 +134,16 @@ function Touch(){
             e.preventDefault();
 
             self.fingerEnd = e.changedTouches[0];
+            // alert("fingerEnd")
 
             self.nowPageId = parseInt($(this).attr("pageId")) + 1;
 
             self.$prePage = self.nowPageId == 1 ? null : $(".page")[self.nowPageId - 2];
             self.$nextPage = self.nowPageId == 4 ? null : $(".page")[self.nowPageId];
 
-            alert("点击结束");
+            // alert("点击结束");
+
+            alert("target:" + self.target);
 
             if(self.target == true) {
                 self.verticalScroll();
@@ -149,6 +152,7 @@ function Touch(){
     };
 
     Touch.prototype.verticalScroll = function(){
+    	alert("ok");
         if(this.fingerStart.screenY - this.fingerEnd.screenY >= 30 && this.nowPageId != 4){
             //向下滑动
             if(this.nowPageId == 1){
