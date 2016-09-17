@@ -146,7 +146,7 @@ function Touch(){
 
     Touch.prototype.verticalScroll = function(){
 
-    	// alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY)
+    	alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY)
 
         if(this.fingerStart.screenY - this.fingerEnd.screenY >= 30 && this.nowPageId != 4){
             //向下滑动
