@@ -127,8 +127,6 @@ function Touch(){
         this.$pages.on("touchstart",function(e){
             e.preventDefault();
 
-            alert("你点击了");
-
             self.fingerStart = e.touches[0];
         });
 
