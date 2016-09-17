@@ -171,6 +171,9 @@ $(function() {
         // console.log(pageId);
         fingerEnd = touchobj.screenY;
         // console.log($this, pageId);
+
+        alert("fingerStart" + fingerStart + "End" + fingerEnd);
+
         if (fingerStart - fingerEnd > 30 && pageId !== 4) {
             if (pageId === 1) {
                 $this.addClass('slide');
