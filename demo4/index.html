@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <script>
+    var pcSite = './../index.html?origin=wechat';
+
+    function detectmob() {
+        if (navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/webOS/i) ||
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/iPad/i) ||
+            navigator.userAgent.match(/iPod/i) ||
+            navigator.userAgent.match(/BlackBerry/i) ||
+            navigator.userAgent.match(/Windows Phone/i)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    if (!detectmob()) {
+        window.location.href = pcSite;
+    }
+    </script>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <title>冰岩作坊2016春季招新|Geek is the new sexy.</title>
+</head>
+
+<body>
+    <div class="share-img" style="display:none;">
+        <img src="images/origin/share.png">
+    </div>
+    <!-- <img src="images/origin/music-control.png" id="music-control">
+    <audio src="music/1.mp3" preload="preload" id="music-play" class="stop"></audio> -->
+    <section id="loading" class="">
+        <div class="join-title">
+            <p>"冰岩作坊2016春季招新"</p>
+            <p>GEEK IS THE NEW SEXY</p>
+        </div>
+        <p class="number">0%</p>
+        <div class="wave-container">
+            <!-- <img src="images/min/wave.png" class="wave"> -->
+            <canvas class="wave" id="wave"></canvas>
+            <div class="load-height"></div>
+        </div>
+    </section>
+    <section id="page1" class="page" page-id="0">
+        <div class="sky">
+            <div class="moon-container">
+                <img src="images/min/moon-ring.png" class="moon-ring">
+                <img src="images/min/moon.png" class="moon">
+            </div>
+            <img src="images/min/mountain.png" class="mountain">
+        </div>
+        <div class="sea">
+            <canvas id="wave-shake"></canvas>
+            <div class="boat"></div>
+            <div class="fish-group">
+                <img src="images/min/fish1.png" class="fish fish1">
+                <img src="images/min/fish2.png" class="fish fish2">
+                <img src="images/min/fish3.png" class="fish fish3">
+                <img src="images/min/fish4.png" class="fish fish4">
+                <img src="images/min/fish5.png" class="fish fish5">
+            </div>
+            <div class="sea-bed">
+                <img src="images/min/grass.png" class="grass-group">
+                <img src="images/min/grass1.png" class="grass1">
+                <img src="images/min/grass2.png" class="grass2">
+                <img src="images/min/grass3.png" class="grass3">
+                <img src="images/min/grass4.png" class="grass4">
+                <img src="images/min/grass3.png" class="grass5">
+            </div>
+            <div class="explore-container">
+                <img src="images/min/rudder.png" class="rudder">
+                <p class="explore">EXPLORE</p>
+            </div>
+        </div>
+    </section>
+    <section id="page2" class="page hide" page-id="1" anim-finish="0">
+        <div class="intro-container">
+            <img src="images/min/logo.png" class="logo">
+            <img src="images/min/introduce.png" class="introduce">
+            <div class="map-container">
+                <div class="point point1">
+                    <span class="stress">启航</span>
+                    <img src="images/min/point.png">
+                </div>
+                <div class="point point2">
+                    <span class="stress">传承</span>
+                    <span>(iknow,大软坊)</span>
+                    <img src="images/min/point.png">
+                </div>
+                <div class="point point3">
+                    <span class="stress">梦想</span>
+                    <span>(二手街等15家创业公司)</span>
+                    <img src="images/min/point.png">
+                </div>
+                <div class="point point4">
+                    <img src="images/min/point.png">
+                    <span class="stress">想象</span>
+                    <span>(然后,飞啦,rebellious)</span>
+                </div>
+                <div class="point point5">
+                    <span class="stress">聚焦</span>
+                    <span>(校园通,华科脱单,土豪网)</span>
+                    <img src="images/min/point.png">
+                </div>
+                <div class="point point6">
+                    <img src="images/min/point.png">
+                    <span class="stress">改变世界</span>
+                </div>
+                <img src="images/min/map-road.png" class="map-road">
+            </div>
+        </div>
+        <img src="images/origin/arrow-point2.png" class="point-arrow">
+    </section>
+    <section id="page3" class="page hide" page-id="2">
+        <!-- <div class="group-container">
+            <div class="group group1">
+                <div class="group-introduce">
+                    <h2 class="group-name">产品组</h2>
+                    <p class="group-content">用匠心转动舵盘，指引前行。他们将一辈子光怪陆离的想法收成归仓，倾泻大海，碾平风浪，驶赴一场没有剧本的冒险。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>PS AI AE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="group group2">
+                <div class="group-introduce">
+                    <h2 class="group-name">设计组</h2>
+                    <p class="group-content">挥霍想象，采撷灵性，万物在他们眼中重获新生。请把心锤炼地柔软一些，才好装下鼓囊囊的才气，带领满血的灵魂从图纸上出发。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>PS AI AE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="group group3">
+                <div class="group-introduce">
+                    <h2 class="group-name">运营组</h2>
+                    <p class="group-content">撑帆前行，风浪中神气自在。用冷静锋利的想象劈开海浪，用准确华丽的文案直指前方。耳边有风，眼里有景，心中有趣。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>PS AI AE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="group group4">
+                <div class="group-introduce">
+                    <h2 class="group-name">移动组</h2>
+                    <p class="group-content">海风肆虐，代码在手阒静在心。荡漾在iOS和Android的世界，他们要码出改变世界的想法，坚守一颗本心，迎接迟来未到的黎明。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>PS AI AE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="group group5">
+                <div class="group-introduce">
+                    <h2 class="group-name">前端组</h2>
+                    <p class="group-content">亦正亦邪的化身，代码和设计的结合。心有猛虎，细嗅蔷薇，屏幕上酷炫的交互，迸射着他们深嵌于心的不明其状的灼热。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>JS CSS NODE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="group group6">
+                <div class="group-introduce">
+                    <h2 class="group-name">程序组</h2>
+                    <p class="group-content">手持匕首，在和bug菌昏天暗地的相互逐杀中维护平衡。他们从盘旋不休的后台开发中攒聚力量，无限贴近昏暗中细碎的光朵。</p>
+                    <p class="group-skill">
+                        <img src="images/min/skill.png">
+                        <span>PS AI AE</span>
+                    </p>
+                </div>
+            </div>
+        </div> -->
+        <div class="group-box" id="box1" box-id="1" disabled="0">
+            <div class="group-container">
+                <div class="group group1">
+                    <div class="group-introduce">
+                        <h2 class="group-name">产品组</h2>
+                        <p class="group-content">用匠心转动舵盘，指引前行。他们将一辈子光怪陆离的想法收成归仓，倾泻大海，碾平风浪，驶赴一场没有剧本的冒险。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Axure Ps Sketch</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+        </div>
+        <div class="group-box" id="box2" box-id="2" disabled="0">
+            <div class="group-container">
+                <div class="group group2">
+                    <div class="group-introduce">
+                        <h2 class="group-name">设计组</h2>
+                        <p class="group-content">挥霍想象，采撷灵性，万物在他们眼中重获新生。请把心锤炼地柔软一些，才好装下鼓囊囊的才气，带领满血的灵魂从图纸上出发。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Ps Ai Ae</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+        </div>
+        <div class="group-box" id="box3" box-id="3" disabled="0">
+            <div class="group-container">
+                <div class="group group3">
+                    <div class="group-introduce">
+                        <h2 class="group-name">运营组</h2>
+                        <p class="group-content">撑帆前行，风浪中神气自在。用冷静锋利的想象劈开海浪，用准确华丽的文案直指前方。耳边有风，眼里有景，心中有趣。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Alexa Google-docs</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+        </div>
+        <div class="group-box" id="box4" box-id="4" disabled="0">
+            <div class="group-container">
+                <div class="group group4">
+                    <div class="group-introduce">
+                        <h2 class="group-name">移动组</h2>
+                        <p class="group-content">海风肆虐，代码在手阒静在心。荡漾在iOS和Android的世界，他们要码出改变世界的想法，坚守一颗本心，迎接迟来未到的黎明。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Java Objective-c Swift</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+        </div>
+        <div class="group-box" id="box5" box-id="5" disabled="0">
+            <div class="group-container">
+                <div class="group group5">
+                    <div class="group-introduce">
+                        <h2 class="group-name">前端组</h2>
+                        <p class="group-content">亦正亦邪的化身，代码和设计的结合。心有猛虎，细嗅蔷薇，屏幕上酷炫的交互，迸射着他们深嵌于心的不明其状的灼热。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Js Css Node</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+        </div>
+        <div class="group-box" id="box6" box-id="6" disabled="0">
+            <div class="group-container">
+                <div class="group group6">
+                    <div class="group-introduce">
+                        <h2 class="group-name">程序组</h2>
+                        <p class="group-content">手持匕首，在和bug菌昏天暗地的相互逐杀中维护平衡。他们从盘旋不休的后台开发中攒聚力量，无限贴近昏暗中细碎的光朵。</p>
+                        <p class="group-skill">
+                            <img src="images/min/skill.png">
+                            <span>Php Python Mysql</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sea-water">
+                <div class="fish-group2">
+                    <img src="images/min/fish6.png" class="fish fish2">
+                    <img src="images/min/fish7.png" class="fish fish1">
+                    <img src="images/min/fish8.png" class="fish fish3">
+                    <img src="images/min/fish9.png" class="fish fish4">
+                    <img src="images/min/fish10.png" class="fish fish5">
+                </div>
+                <div class="grass-group">
+                    <img src="images/min/grass10.png" class="grass grass1">
+                    <img src="images/min/grass7.png" class="grass grass2">
+                    <img src="images/min/grass6.png" class="grass grass3">
+                    <img src="images/min/grass8.png" class="grass grass4">
+                    <img src="images/min/grass9.png" class="grass grass5">
+                    <img src="images/min/grass-land.png" class="grass-land">
+                </div>
+            </div>
+            <div class="sea-bed"></div>
+            <!-- <img src="images/origin/arrow-point.png" class="point-arrow"> -->
+        </div>
+        <!-- <div class="sea-water">
+            <a href="javascript:;" class="rotate-rudder">
+                <img src="images/min/arrow.png">
+                <img src="images/min/rudder2.png" id="rudder-rotate">
+                <span>点击查看各组介绍</span>
+            </a>
+            <div class="fish-group2">
+                <img src="images/min/fish6.png" class="fish fish2">
+                <img src="images/min/fish7.png" class="fish fish1">
+                <img src="images/min/fish8.png" class="fish fish3">
+                <img src="images/min/fish9.png" class="fish fish4">
+                <img src="images/min/fish10.png" class="fish fish5">
+            </div>
+            <div class="grass-group">
+                <img src="images/min/grass10.png" class="grass grass1">
+                <img src="images/min/grass7.png" class="grass grass2">
+                <img src="images/min/grass6.png" class="grass grass3">
+                <img src="images/min/grass8.png" class="grass grass4">
+                <img src="images/min/grass9.png" class="grass grass5">
+                <img src="images/min/grass-land.png" class="grass-land">
+            </div>
+        </div>
+        <div class="sea-bed"></div> -->
+        <a href="javascript:;" class="rotate-rudder">
+            <img src="images/min/arrow.png">
+            <img src="images/min/rudder2.png" id="rudder-rotate">
+            <span class="rudder-text">点击查看各组介绍</span>
+        </a>
+    </section>
+    <section id="page4" class="page active hide" page-id="3">
+        <div class="sky"></div>
+        <div class="sea">
+            <img src="images/min/moon-ring-big.png" class="moon-ring">
+            <img src="images/min/moon-big.png" class="moon">
+            <img src="images/min/earth.png" class="earth">
+            <div class="boat"></div>
+            <div class="fish-group">
+                <img src="images/min/fish1.png" class="fish fish1">
+                <img src="images/min/fish2.png" class="fish fish2">
+                <img src="images/min/fish3.png" class="fish fish3">
+                <img src="images/min/fish4.png" class="fish fish4">
+                <img src="images/min/fish5.png" class="fish fish5">
+            </div>
+            <div class="sea-bed">
+                <img src="images/min/grass.png" class="grass-group">
+                <img src="images/min/grass1.png" class="grass1">
+                <img src="images/min/grass2.png" class="grass2">
+                <img src="images/min/grass3.png" class="grass3">
+                <img src="images/min/grass4.png" class="grass4">
+                <img src="images/min/grass3.png" class="grass5">
+                <span>永远乘风破浪,永远在路上</span>
+            </div>
+            <div class="join-container">
+                <a href="javascript:;" class="join-button">
+                    <img src="images/min/join-button.png">
+                    <span>点击加入</span>
+                </a>
+                <p>冰岩招新宣讲会</p>
+                <p>3.8(周二)晚7点 东九楼A116</p>
+                <p>
+                    <a href="javascript:;" class="watch-video">点击查看冰岩航海之旅鬼畜日常</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="scripts/preloadjs.js"></script>
+    <script type="text/javascript" src="scripts/zepto.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <div style="display:none;">
+        <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1256376955'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1256376955' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+
+</html>

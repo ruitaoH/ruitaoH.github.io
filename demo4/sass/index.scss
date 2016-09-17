@@ -1,0 +1,1204 @@
+@import 'compass/reset';
+@import 'compass/css3';
+@function rem($px, $base: 16px) {
+    @return ($px / $base) * 1rem;
+}
+
+@font-face {
+    font-family: 'w5';
+    src: url('../fonts/w5.eot');
+    src: url('../fonts/w5.eot?#font-spider') format('embedded-opentype'), url('../fonts/w5.woff') format('woff'), url('../fonts/w5.ttf') format('truetype'), url('../fonts/w5.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+body {
+    font-family: 'w5';
+    position: relative;
+}
+
+a {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+@media screen and (min-device-width: 401px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 400px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-device-width: 359px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    @include transition(all 1.5s);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.slide {
+    @include translateY(-150%);
+}
+
+.hide {
+    display: none;
+}
+
+#music-control {
+    position: absolute;
+    width: rem(22px);
+    height: rem(22px);
+    top: rem(20px);
+    right: rem(20px);
+    z-index: 10;
+    opacity: 0;
+    @include transition(opacity 1s);
+    @include animation(music-rotate 2s linear infinite);
+}
+
+@include keyframes(music-rotate) {
+    0% {
+        @include rotate(0);
+    }
+    100% {
+        @include rotate(360deg);
+    }
+}
+
+#loading {
+    background-color: #000;
+    opacity: 1;
+    p {
+        text-align: center;
+        color: #c0c1c1;
+        font-size: rem(18px);
+        line-height: 1.2;
+        &:nth-of-type(1) {
+            margin-bottom: rem(20px);
+            font-size: rem(25px);
+        }
+    }
+    z-index: 5;
+    @include transition(opacity 1s);
+    // font-family: 'w5',STHeiTi,"Microsoft Yahei","Helvetica Neue", Helvetica, sans-serif;
+    // font-family: STHeiTi,"Microsoft Yahei","Helvetica Neue", Helvetica, sans-serif;
+    font-family: arial,
+    sans-serif;
+}
+
+.join-title {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    @include translateY(-50%);
+}
+
+.number {
+    position: absolute;
+    bottom: rem(150px);
+    left: 50%;
+    @include translateX(-50%);
+}
+
+#page1 {
+    z-index: 4;
+}
+
+#page2 {
+    z-index: 3;
+}
+
+#page3 {
+    z-index: 2;
+}
+
+#page4 {
+    z-index: 1;
+}
+
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.wave {
+    width: 100%;
+    display: block;
+    height: rem(100px);
+    // margin-bottom: rem(-3px);
+    // margin-bottom: -3px;
+    // display: block;
+    // @include animation(wave-shake 5s ease-out infinite alternate backwards);
+}
+
+@include keyframes(wave-shake) {
+    0% {
+        @include translateX(0);
+    }
+    50% {
+        @include translateX(-50%);
+    }
+    100% {
+        @include translateX(0);
+    }
+}
+
+.load-height {
+    height: 0;
+    // height: 100px;
+    background-color: rgba(105, 105, 106, 0.2);
+}
+
+.sky {
+    position: relative;
+    height: 73.2%;
+    background-image: url('../images/min/sky.png');
+    background-size: cover;
+}
+
+.sea {
+    position: relative;
+    height: 26.8%;
+    background-color: #31434a;
+}
+
+.moon-container {
+    img {
+        position: absolute;
+    }
+}
+
+.moon {
+    width: rem(75px);
+    top: rem(94px);
+    left: rem(62px);
+    z-index: 2;
+}
+
+.moon-ring {
+    top: rem(-42px);
+    left: rem(-64px);
+    width: rem(677px / 2);
+    @include transform-origin(rem(164px),
+    rem(180px));
+}
+
+@include keyframes(moon-ring) {
+    0% {
+        @include scale(0.1);
+        opacity: 1;
+    }
+    35% {
+        @include scale(0.5);
+        opacity: 1;
+    }
+    85% {
+        @include scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        @include scale(1);
+        opacity: 0;
+    }
+}
+
+.mountain {
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    @include translateX(-50%);
+}
+
+.boat {
+    width: rem(273px);
+    height: rem(213px);
+    background-image: url('../images/min/boat.png');
+    background-size: cover;
+    position: absolute;
+    top: rem(-168px);
+    left: rem(44px);
+    @include transform-origin(61%,
+    68.6%);
+}
+
+@include keyframes(boat) {
+    0% {
+        @include transform(rotate(0deg) translateY(0));
+    }
+    33.3% {
+        @include transform(rotate(3deg) translateY(-1%));
+    }
+    66.6% {
+        @include transform(rotate(-3deg) translateY(1%));
+    }
+    100% {
+        @include transform(rotate(0deg) translateY(0));
+    }
+}
+
+.explore-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    @include translate(-50%,
+    -50%);
+    text-align: center;
+    z-index: 3;
+}
+
+.rudder {
+    width: rem(36px);
+    margin-left: 10px;
+}
+
+@include keyframes(rudder) {
+    0% {
+        @include scale(1);
+    }
+    100% {
+        @include scale(0.9);
+    }
+}
+
+.explore {
+    margin-top: 10px;
+    width: rem(62px);
+    color: #fff;
+}
+
+#wave-shake {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+}
+
+.fish-group {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 10px;
+    z-index: 3;
+}
+
+.fish {
+    position: absolute;
+}
+
+.fish1,
+.fish5 {
+    left: rem(-10px);
+}
+
+.fish2,
+.fish3,
+.fish4 {
+    right: rem(-20px);
+}
+
+.fish1 {
+    top: 20%;
+    height: 15px;
+}
+
+.fish2 {
+    width: 14px;
+    top: 25%;
+}
+
+.fish3 {
+    width: 22px;
+    top: 45%;
+    right: -8%;
+}
+
+.fish4 {
+    width: 13px;
+    bottom: 10%;
+    right: -5%;
+}
+
+.fish5 {
+    width: 13px;
+    bottom: 2%;
+    left: -5%;
+}
+
+@include keyframes(fish1) {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+@include keyframes(fish2) {
+    0% {
+        right: -10%;
+    }
+    100% {
+        right: 110%;
+    }
+}
+
+@include keyframes(fish3) {
+    0% {
+        right: -10%;
+    }
+    100% {
+        right: 110%;
+    }
+}
+
+@include keyframes(fish4) {
+    0% {
+        right: -10%;
+    }
+    100% {
+        right: 110%;
+    }
+}
+
+@include keyframes(fish5) {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+.sea-bed {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: rem(25px);
+    background-color: #121318;
+    img {
+        position: absolute;
+        bottom: rem(24px);
+    }
+    z-index: 3;
+}
+
+.grass-group {
+    width: 100%;
+}
+
+.grass1 {
+    left: rem(220px / 2);
+    width: rem(15px);
+    @include transform-origin(rem(15px / 2),
+    100%);
+}
+
+.grass2 {
+    left: rem(330px / 2);
+    width: rem(12px);
+    @include transform-origin(rem(6px),
+    100%);
+}
+
+.grass3 {
+    left: rem(460px / 2);
+    width: rem(18px);
+    @include transform-origin(rem(9px),
+    100%);
+}
+
+.grass4 {
+    left: rem(640px / 2);
+    width: rem(14px);
+    @include transform-origin(rem(7px),
+    100%);
+}
+
+.grass5 {
+    left: rem(80px / 2);
+    width: rem(16px);
+    @include transform-origin(rem(8px),
+    100%);
+}
+
+@include keyframes(grass1) {
+    0% {
+        @include rotate(-8deg);
+    }
+    50% {
+        @include rotate(0);
+    }
+    100% {
+        @include rotate(8deg);
+    }
+}
+
+@include keyframes(grass2) {
+    0% {
+        @include rotate(-6deg);
+    }
+    50% {
+        @include rotate(0);
+    }
+    100% {
+        @include rotate(6deg);
+    }
+}
+
+#wave-shake {
+    width: 100%;
+    height: 100%;
+}
+
+.active {
+    .moon-ring {
+        @include animation(moon-ring 6s linear infinite);
+    }
+    .boat {
+        @include animation(boat 5s infinite alternate);
+    }
+    .rudder {
+        @include animation(rudder 1.2s ease infinite alternate);
+    }
+    .fish1 {
+        @include animation(fish1 20s ease infinite);
+    }
+    .fish2 {
+        @include animation(fish2 20s linear infinite);
+    }
+    .fish3 {
+        @include animation(fish3 25s 4s linear infinite);
+    }
+    .fish4 {
+        @include animation(fish4 15s 6s linear infinite);
+    }
+    .fish5 {
+        @include animation(fish5 15s 6s ease infinite);
+    }
+    .grass1 {
+        @include animation(grass1 4s linear infinite alternate);
+    }
+    .grass2 {
+        @include animation(grass2 3s linear infinite alternate);
+    }
+    .grass3 {
+        @include animation(grass1 4s -2s linear infinite alternate);
+    }
+    .grass4 {
+        @include animation(grass2 3s linear infinite alternate);
+    }
+    .grass5 {
+        @include animation(grass2 3s -2s linear infinite alternate);
+    }
+    .intro-container {
+        @include animation(paper-show 3.5s forwards);
+    }
+    .logo {
+        @include animation(logo-show 300ms 4s backwards);
+    }
+    .introduce {
+        @include animation(introduce-show 600ms 4.5s backwards);
+    }
+    .point1 {
+        img {
+            @include animation(point1 500ms 5.3s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 6.1s backwards);
+        }
+    }
+    .point2 {
+        img {
+            @include animation(point1 500ms 6.8s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 7.6s backwards);
+        }
+    }
+    .point3 {
+        img {
+            @include animation(point1 500ms 8.3s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 9.1s backwards);
+        }
+    }
+    .point4 {
+        img {
+            @include animation(point2 500ms 9.8s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 10.6s backwards);
+        }
+    }
+    .point5 {
+        img {
+            @include animation(point1 500ms 11.3s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 12.1s backwards);
+        }
+    }
+    .point6 {
+        img {
+            @include animation(point2 500ms 12.8s backwards);
+        }
+        span {
+            @include animation(word-show 500ms 13.6s backwards);
+        }
+    }
+    .map-road {
+        @include animation(word-show 600ms 14.5s backwards);
+    }
+    .point-arrow {
+        @include animation(move-arrow 1s 15.5s backwards infinite alternate);
+    }
+}
+
+#page3.active {
+    .point-arrow {
+        @include animation(move-arrow 1.5s 2s backwards infinite alternate);
+    }
+}
+
+#page4 {
+    .sky {
+        height: 63.7%;
+        img {
+            position: absolute;
+        }
+    }
+    .moon {
+        position: absolute;
+        width: rem(208px / 2);
+        top: rem(-210px);
+        left: 50%;
+        @include translateX(-50%);
+    }
+    .moon-ring {
+        position: absolute;
+        left: 50%;
+        top: rem(-330px);
+        width: rem(677px / 2);
+        @include transform-origin(50%,
+        50%);
+        margin-left: rem(-677px / 4);
+    }
+    .sea {
+        height: 36.3%;
+        background-color: #31414a;
+    }
+    .boat {
+        width: rem(265px / 2);
+        height: rem(100px);
+        // top: 50%;
+        left: 50%;
+        margin-left: rem(-265px / 4);
+        z-index: 3;
+    }
+    .sea-bed {
+        height: rem(50px);
+        text-align: center;
+        img {
+            bottom: rem(49px);
+        }
+        span {
+            font-size: rem(16px);
+            color: #fff;
+            line-height: rem(50px);
+        }
+    }
+    .grass-group {
+        left: 0;
+    }
+}
+
+.earth {
+    position: absolute;
+    width: 100%;
+    top: 1%;
+    left: 0;
+    @include translateY(-100%);
+}
+
+.join-container {
+    position: absolute;
+    top: rem(-48px);
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    p {
+        color: #fff;
+        line-height: 1.5;
+        font-size: rem(18px);
+        &:nth-of-type(1) {
+            margin-bottom: rem(5px);
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: rem(18px);
+        }
+    }
+}
+
+.join-button {
+    display: block;
+    height: rem(114px / 2);
+    text-decoration: none;
+    margin-bottom: rem(15px);
+    img {
+        position: absolute;
+        left: 50%;
+        @include translate(-50%,
+        -15%);
+        height: rem(114px / 2);
+    }
+    span {
+        position: relative;
+        font-size: rem(16px);
+        line-height: rem(114px / 2);
+        color: #fff;
+        z-index: 2;
+    }
+}
+
+#page2 {
+    background-image: url('../images/min/page2-bg.png');
+    background-size: cover;
+    position: relative;
+}
+
+.intro-container {
+    position: absolute;
+    width: 95%;
+    height: 92%;
+    top: rem(65px / 2);
+    left: rem(30px / 2);
+    background-image: url('../images/min/page2-content2.png');
+    background-size: cover;
+    opacity: 0;
+}
+
+.logo {
+    position: absolute;
+    width: rem(122px / 2);
+    top: rem(46px / 2);
+    left: rem(92px / 2);
+}
+
+.introduce {
+    position: absolute;
+    width: rem(394px / 2);
+    top: rem(6px);
+    right: rem(20px);
+}
+
+.map-container {
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    top: 15%;
+    // overflow: hidden;
+}
+
+.point {
+    position: absolute;
+    // width: rem(61px / 2);
+    // height: rem(63px / 2);
+    text-align: center;
+    span {
+        display: block;
+        font-size: rem(14px);
+        color: #a22819;
+        margin-bottom: rem(4px);
+    }
+    img {
+        width: rem(13px);
+        height: rem(12px);
+    }
+    .stress {
+        font-weight: bold;
+        font-size: rem(16px);
+        margin-bottom: rem(6px);
+    }
+}
+
+.point1 {
+    top: rem(70px);
+    left: rem(50px);
+}
+
+.point2 {
+    top: rem(178px);
+    left: rem(48px);
+}
+
+.point3 {
+    top: rem(160px);
+    right: rem(-10px);
+    span:nth-of-type(2) {
+        @include translateX(-15px);
+    }
+}
+
+.point4 {
+    top: rem(296px);
+    right: rem(10px);
+    img {
+        margin-bottom: rem(5px);
+    }
+    span:nth-of-type(2) {
+        @include translateX(-20px);
+    }
+}
+
+.point5 {
+    top: rem(240px);
+    left: rem(94px);
+}
+
+.point6 {
+    top: rem(400px);
+    left: rem(70px);
+    img {
+        margin-bottom: rem(5px);
+    }
+}
+
+.map-road {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+@include keyframes(paper-show) {
+    0% {
+        @include transform(scale(1) translateY(10%));
+        opacity: 0;
+    }
+    40% {
+        @include transform(scale(1.1) translateY(-5%));
+        opacity: 0.7;
+    }
+    100% {
+        @include transform(scale(1) translateY(0));
+        opacity: 1
+    }
+}
+
+@include keyframes(logo-show) {
+    0% {
+        @include translateY(-100%);
+        opacity: 0;
+    }
+    70% {
+        @include translateY(0);
+        opacity: 1;
+    }
+    90% {
+        @include translateY(40%);
+    }
+    100% {
+        @include translateY(0);
+    }
+}
+
+@include keyframes(introduce-show) {
+    0% {
+        @include translateX(40%);
+        opacity: 0;
+    }
+    100% {
+        @include translateX(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(point1) {
+    0% {
+        @include translateY(50%);
+        opacity: 0;
+    }
+    100% {
+        @include translateY(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(point2) {
+    0% {
+        @include translateY(-50%);
+        opacity: 0;
+    }
+    100% {
+        @include translateY(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(word-show) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#page3 {
+    background-color: #020202;
+    .sea-bed {
+        height: rem(52px / 2);
+        background-color: #304048;
+    }
+}
+
+.sea-water {
+    position: absolute;
+    bottom: rem(18px);
+}
+
+.rotate-rudder {
+    position: absolute;
+    width: rem(130px);
+    bottom: rem(90px);
+    left: 50%;
+    @include translateX(-50%);
+    text-align: center;
+    text-decoration: none;
+    z-index: 7;
+    img:nth-of-type(1) {
+        width: rem(32px / 2);
+        position: absolute;
+        top: 0;
+        left: rem(22px);
+    }
+    img:nth-of-type(2) {
+        width: rem(164px / 2);
+        margin-bottom: rem(10px);
+        @include transition(transform 1s);
+    }
+    span {
+        display: block;
+        color: #fff;
+        font-size: rem(16px);
+    }
+}
+
+.small-rudder {
+    img:nth-of-type(1) {
+    	left: rem(30px);
+    }
+    img:nth-of-type(2) {
+        width: rem(50px);
+    }
+}
+
+.fish-group2 {
+    position: absolute;
+    width: 100%;
+    height: rem(120px);
+    bottom: rem(30px);
+    .fish1 {
+        left: rem(-10px);
+    }
+    .fish2 {
+        width: rem(22px);
+        right: rem(-20px);
+    }
+    .fish3 {
+        width: rem(14px);
+    }
+    .fish4 {
+        width: rem(15px);
+    }
+    .fish5 {
+        width: rem(15px);
+    }
+}
+
+.grass-group {
+    position: relative;
+    .grass {
+        position: absolute;
+    }
+    .grass1 {
+        bottom: 0;
+        left: rem(5px);
+    }
+    .grass2 {
+        bottom: rem(5px);
+        left: rem(55px);
+    }
+    .grass3 {
+        bottom: rem(4px);
+        left: 50%;
+        margin-left: rem(-20px);
+    }
+    .grass4 {
+        bottom: rem(5px);
+        left: rem(242px);
+    }
+    .grass5 {
+        bottom: rem(5px);
+        left: rem(320px);
+    }
+}
+
+.grass-land {
+    width: 100%;
+}
+
+.group-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    @include transition(transform 1.5s);
+    background-color: #000;
+}
+
+#box1 {
+    z-index: 6;
+}
+
+#box2 {
+    z-index: 5;
+}
+
+#box3 {
+    z-index: 4;
+}
+
+#box4 {
+    z-index: 3;
+}
+
+#box5 {
+    z-index: 2;
+}
+
+#box6 {
+    z-index: 1;
+}
+
+.group-container {
+    position: absolute;
+    width: 90%;
+    height: 65%;
+    bottom: rem(210px);
+    left: 50%;
+    @include translateX(-50%);
+}
+
+.group {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    position: absolute;
+    opacity: 0;
+    @include transition(opacity 1s);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.group-introduce {
+    width: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%,
+    -30%);
+    .group-name {
+        font-size: rem(30px);
+        margin-bottom: rem(35px);
+    }
+    .group-content {
+        white-space: pre-wrap;
+        word-break: break-all;
+        font-size: rem(18px);
+        text-align: left;
+        margin-bottom: rem(30px);
+    }
+    .group-skill {
+        img {
+            width: rem(25px);
+            margin-right: rem(6px);
+            vertical-align: bottom;
+        }
+        span {
+            vertical-align: bottom;
+        }
+    }
+}
+
+.group1 {
+    background-image: url('../images/min/photo.png');
+}
+
+.group2 {
+    background-image: url('../images/min/photo5.png');
+}
+
+.group3 {
+    background-image: url('../images/min/photo4.png');
+}
+
+.group4 {
+    background-image: url('../images/min/photo2.png');
+}
+
+.group5 {
+    background-image: url('../images/min/photo3.png');
+}
+
+.group6 {
+    background-image: url('../images/min/photo6.png');
+}
+
+.current {
+    opacity: 1;
+    .group-name,
+    .group-skill {
+        @include animation(introduce2 600ms 1s backwards);
+    }
+}
+
+.group1.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+.group2.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+.group3.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+.group4.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+.group5.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+.group6.current {
+    .group-content {
+        @include animation(introduce1 600ms 1.6s backwards);
+    }
+}
+
+@include keyframes(introduce1) {
+    0% {
+        @include translateY(30%);
+        opacity: 0;
+    }
+    100% {
+        @include translateY(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(introduce2) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(introduce3) {
+    0% {
+        @include translateX(50%);
+        opacity: 0;
+    }
+    100% {
+        @include translateX(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(introduce4) {
+    0% {
+        @include translate(-30%,
+        -20%);
+        opacity: 0;
+    }
+    100% {
+        @include translate(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(introduce5) {
+    0% {
+        @include translate(20%,
+        30%);
+        opacity: 0;
+    }
+    100% {
+        @include translate(0);
+        opacity: 1;
+    }
+}
+
+.point-arrow {
+    position: absolute;
+    width: rem(30px);
+    left: 50%;
+    bottom: rem(40px);
+    margin-left: rem(-45px / 4);
+    opacity: 0;
+    z-index: 3;
+}
+
+@include keyframes(move-arrow) {
+    0% {
+        @include translateY(0);
+        opacity: 0;
+    }
+    100% {
+        @include translateY(-100%);
+        opacity: 1;
+    }
+}
