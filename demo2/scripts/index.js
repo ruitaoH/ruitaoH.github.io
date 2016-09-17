@@ -124,14 +124,14 @@ function Touch(){
     this.tip = 0;
 
     this.init = function(){
-       this.$pages.on("touchstart",function(e){
-            // e.preventDefault();
+        this.$pages.on("touchstart",function(e){
+            e.preventDefault();
 
-            self.fingerStart = e.touches[0];
+            self.fingerStart = e.touches[0].screenY;
         }).on("touchend",function(e) {
-            // e.preventDefault();
+            e.preventDefault();
 
-            self.fingerEnd = e.changedTouches[0];
+            self.fingerEnd = e.changedTouches[0].screenY;
 
             self.nowPageId = parseInt($(this).attr("pageId")) + 1;
 
@@ -145,13 +145,9 @@ function Touch(){
     };
 
     Touch.prototype.verticalScroll = function(){
-    	alert("start" + this.fingerStart.screenY + "end" + this.fingerEnd.screenY);
-
-        if(this.fingerStart.screenY - this.fingerEnd.screenY >= 30 && this.nowPageId != 4){
+        if(this.fingerStart - this.fingerEnd >= 30 && this.nowPageId != 4){
             //向下滑动
             if(this.nowPageId == 1){
-                //this.target = false;
-
                 $(".disappear").css("opacity",0);
                 var timer = setTimeout(function(){
                     $("#content").animate({
@@ -169,7 +165,6 @@ function Touch(){
                         },500);
                     });
 
-                    //self.target = true;
                     clearTimeout(timer);
                 },600);
             }else if(this.nowPageId == 2){
@@ -187,7 +182,7 @@ function Touch(){
                 },function(){
                 })
             }
-        }else if(this.fingerEnd.screenY - this.fingerStart.screenY >= 30 && this.nowPageId != 1){
+        }else if(this.fingerEnd - this.fingerStart >= 30 && this.nowPageId != 1){
             //向上滑动
             if(self.nowPageId == 3){
 
@@ -227,7 +222,6 @@ function Carousel(touch){
     var self = this;
     this.touch = touch;
     this.carouselItems = document.querySelectorAll("#carousel-list li");
-    //this.carouselArea = $("#carousel-area");
 
     this.carouselArea = $("#carousel-area > div");
 
@@ -235,9 +229,10 @@ function Carousel(touch){
     this.fingerEnd;
 
     this.tagsItems = document.querySelectorAll("#tags li");
-    this.clickFingerStart;
-    this.clickFingerEnd;
-    //this.tagsItems = $("#tags li");
+    this.clickFingerStartX;
+    this.clickFingerStartY;
+    this.clickFingerEndX;
+    this.clickFingerEndY;
 
     this.currentId = 0;
     this.currentItem = $(".current");
@@ -257,7 +252,7 @@ function Carousel(touch){
         this.carouselArea.on('touchstart',function(e){
             e.preventDefault();
 
-            self.fingerStart = e.touches[0];
+            self.fingerStart = e.touches[0].screenY;
 
             if(self.tip == 0){
                 $(".tip").hide();
@@ -265,13 +260,11 @@ function Carousel(touch){
                 self.tip = 1;
             }
 
-            //self.touch.target = false;
-
             touch.target = false;
         }).on('touchend',function(e){
             e.preventDefault();
 
-            self.fingerEnd = e.changedTouches[0];
+            self.fingerEnd = e.changedTouches[0].screenY;
 
             self.currentItem = $(".current");
             self.nextItem = $(".next");
@@ -293,16 +286,18 @@ function Carousel(touch){
         }
 
         $(this.tagsItems).on("touchstart",function(e){
-            self.clickFingerStart = e.touches[0];
+            self.clickFingerStartX = e.touches[0].screenX;
+            self.clickFingerStartY = e.touches[0].screenY;
         }).on("touchend",function(e){
-            self.clickFingerEnd = e.changedTouches[0];
+            self.clickFingerEndX = e.changedTouches[0].screenX;
+            self.clickFingerEndY = e.changedTouches[0].screenY;
 
             self.currentItem = $(".current");
             self.nextItem = $(".next");
             self.preItem = $(".pre");
 
             if(!self.targetIsPlaying && !self.targetIsClick) {
-                if (self.clickFingerEnd.screenX == self.clickFingerStart.screenX && self.clickFingerEnd.screenY == self.clickFingerStart.screenY) {
+                if (self.clickFingerEndX == self.clickFingerStartX && self.clickFingerEndY == self.clickFingerStartY) {
                     self.targetIsClick = true;
 
                     var index = this.index;
@@ -380,10 +375,10 @@ function Carousel(touch){
 
     Carousel.prototype.horizontalScroll = function(){
         if(!this.targetIsPlaying && !this.targetIsClick) {
-            if (this.fingerStart.screenX - this.fingerEnd.screenX >= 50) {
+            if (this.fingerStart - this.fingerEnd >= 50) {
                 self.targetIsPlaying = true;
                 self.carouselNextPage();
-            } else if (this.fingerEnd.screenX - this.fingerStart.screenX >= 50) {
+            } else if (this.fingerEnd - this.fingerStart >= 50) {
                 self.targetIsPlaying = true;
                 self.carouselPrePage();
             } else {
@@ -680,8 +675,6 @@ function Preload(loading) {
 
         this.ctx.moveTo(0, y3 + self.deltaHeightRight);
         this.ctx.bezierCurveTo(x1, y1 + self.deltaHeight, x2, y2 + self.deltaHeightRight, x3, y3 + self.deltaHeightRight);
-        //this.ctx.bezierCurveTo(x1 / 4, y1 + self.deltaHeight, x2 / 4, y2 + self.deltaHeightRight, x3 / 2, y3 + self.deltaHeightRight);
-        //this.ctx.bezierCurveTo(x1 * 0.75, y1 + self.deltaHeight, x2 * 0.75, y2 + self.deltaHeightRight, x3, y3 + self.deltaHeightRight);
         this.ctx.lineTo(self.canvas.width, self.canvas.height);
         this.ctx.lineTo(0, self.canvas.height);
         this.ctx.closePath();
