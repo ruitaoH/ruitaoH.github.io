@@ -19,17 +19,21 @@
     <script src="zepto.js" type="text/javascript"></script>
     <script>
         var fingerStart;
-        var fingerEnd
+        var fingerEnd;
+        var start;
+        var end;
         $("#div").on("touchstart",function(e){
             e.preventDefault();
 
             fingerStart = e.touches[0];
+            start = fingerStart.screenY;
         }).on("touchend",function(e){
             // e.preventDefault();
 
             fingerEnd = e.changedTouches[0];
 
-            alert("start" + fingerStart.screenY + "end" + fingerEnd.screenY);
+            end = fingerEnd.screenY
+            alert("start" + start + "end" + end);
         })
     </script>
 </body>
