@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
     <title>Title</title>
 </head>
 <!--style="outline: 1px solid red;"-->
@@ -14,6 +20,10 @@
     <script type="text/javascript">
         jQuery(document.body).on("touchstart", function() { document.body.appendChild(document.createTextNode("body touchstart ")); });
         jQuery(document.body).on("touchend", function() { document.body.appendChild(document.createTextNode("body touchend ")); });
+    </script>
+
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
     </script>
 </body>
 </html>
